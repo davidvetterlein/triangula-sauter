@@ -20,8 +20,18 @@ public class GegnerKi : MonoBehaviour {
 			gameObject.transform.position -= new Vector3 (speed, 0, 0);
 		}
 		wahrscheinlichkeit = Random.Range (0, 1000);
-		if (wahrscheinlichkeit >= 980) {
+		if (wahrscheinlichkeit >= 994) {
 			if (rechts == true) {
+				rechts = false;
+			} else {
+				rechts = true;
+			}
+		}
+	}
+	
+	void OnCollisionEnter(Collision col){
+		if(col.gameObject.tag == "wand"){
+			if(rechts == true){
 				rechts = false;
 			} else {
 				rechts = true;
