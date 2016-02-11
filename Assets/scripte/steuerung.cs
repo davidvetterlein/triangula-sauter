@@ -11,8 +11,8 @@ public class steuerung : MonoBehaviour {
 	public bool canjump = true;
 	public float up;
 	public GameObject cam;
-	public int maxy = 0;
-	public int miny = 0;
+	public float maxy = 0;
+	public float miny = 0;
 	
 
 	public void clickupL (){
@@ -54,10 +54,10 @@ public class steuerung : MonoBehaviour {
 		cam.transform.position = new Vector3(gameObject.transform.position.x, cam.transform.position.y, cam.transform.position.z);
 		if (jumping == true && jump >= 1 || Input.GetKey("up") && jump >= 1){
 			jump -= 1;
-			gameObject.GetComponent<Rigidbody>().Sleep();
+			gameObject.GetComponent<Rigidbody2D>().Sleep();
 			gameObject.transform.position += new Vector3 (0, up, 0);
 		} else if (jumping == true && jump <= 0){
-			gameObject.GetComponent<Rigidbody>().WakeUp();
+			gameObject.GetComponent<Rigidbody2D>().WakeUp();
 			jumping = false;
 		}
 		if (rechts == true || Input.GetKey("right")) {
@@ -68,13 +68,15 @@ public class steuerung : MonoBehaviour {
 		}
 	
 	}
-	
-	void OnCollisionEnter(Collision col){
-		if(col.transform.gameObject.position.y >= miny && col.transform.gameObject.position.y >= maxy){
-			gameObject.GetComponent<Rigidbody>().WakeUp();
-			jump = 0;
-			canjump = true;
-			jumping = false;
-		}
-	}
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        gameObject.GetComponent<Rigidbody2D>().WakeUp();
+        jump = 0;
+        jumping = false;
+        if (col.gameObject.transform.position.y > gameObject.transform.position.y - miny && col.gameObject.transform.position.y < gameObject.transform.position.y + maxy)
+        {
+            canjump = true;
+        }
+    }
 }
