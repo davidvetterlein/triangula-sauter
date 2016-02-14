@@ -20,6 +20,7 @@ public class TheHook : MonoBehaviour {
         if (hit.collider != null)
         {
             gameObject.GetComponent<DistanceJoint2D>().connectedAnchor = hit.collider.transform.position;
+            //gameObject.GetComponent<DistanceJoint2D>().distance = gameObject.transform.position.y;
         }
     }
 
