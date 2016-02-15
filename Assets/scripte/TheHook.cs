@@ -2,15 +2,25 @@
 using System.Collections;
 
 public class TheHook : MonoBehaviour {
-
+    public bool called = false;
 	// Use this for initialization
 	void Start () {
-        CallHook();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        
+        if(Input.GetKeyDown("m")){
+            if(called == true)
+            {
+                called = false;
+                CallHook();
+            }
+            else
+            {
+                called = true;
+                UndoCall();
+            }
+        }
     }
 
     public void CallHook()
