@@ -13,6 +13,7 @@ public class steuerung : MonoBehaviour {
 	public GameObject cam;
 	public float maxy = 0;
 	public float miny = 0;
+	public Vector3 Startpos;
 	
 
 	public void clickupL (){
@@ -71,6 +72,10 @@ public class steuerung : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
+		
+		if(col.gameObject.tag == "tot"){
+			gameObject.transform.position = Startpos;
+		}
         gameObject.GetComponent<Rigidbody2D>().WakeUp();
         jump = 0;
         jumping = false;
@@ -79,4 +84,12 @@ public class steuerung : MonoBehaviour {
             canjump = true;
         }
     }
+	
+	
+	
+	
+	
+	
+	
+	
 }
