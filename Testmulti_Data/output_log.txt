@@ -1,0 +1,67 @@
+Initialize engine version: 5.3.2f1 (e87ab445ead0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon R9 200 Series (ID=0x6810)
+    Vendor:   ATI
+    VRAM:     2026 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.156 seconds
+Platform assembly: C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.794933 ms
+Active changed on client!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Active changed on client!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.652756 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 2190.
+Total: 0.653644 ms (FindLiveObjects: 0.115377 ms CreateObjectMapping: 0.078711 ms MarkObjects: 0.440488 ms  DeleteObjects: 0.010755 ms)
+
+Active changed on client!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Active changed on client!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Active changed on client!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Active changed on client!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:61667}
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.225644 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 2189.
+Total: 0.436577 ms (FindLiveObjects: 0.060622 ms CreateObjectMapping: 0.032755 ms MarkObjects: 0.330000 ms  DeleteObjects: 0.006355 ms)
+
+Active changed on client!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 42c -> priority: 1 
