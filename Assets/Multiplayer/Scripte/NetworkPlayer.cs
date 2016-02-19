@@ -19,6 +19,10 @@ public class NetworkPlayer : NetworkBehaviour {
             gameObject.GetComponent<steuerungmutli>().cam = Camera.main.gameObject;
             gameObject.GetComponent<Hookmulti>().enabled = true;
         }
+        else
+        {
+            gameObject.transform.Rotate(0, 180, 0);
+        }
 	}
 	
 	// Update is called once per frame
