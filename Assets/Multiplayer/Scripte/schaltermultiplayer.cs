@@ -6,13 +6,20 @@ public class schaltermultiplayer : NetworkBehaviour {
     public GameObject[] Mauer;
     public int Schalteranz = 1;
     public int Schalter = 0;
+    public int Mauerr;
 
     public void Start()
     {
-        Mauer = GameObject.FindGameObjectsWithTag("Mauer");
+        Mauerr = Schalteranz;
+
     }
     void Update()
     {
+        if (Mauerr >= 0)
+        {
+            Mauer[Mauerr] = GameObject.Find("Mauer" +Mauerr);
+            Mauerr -= 1;
+        }
         if (active == false)
         {
             Mauer[CSchalter].SetActive(false);
@@ -24,20 +31,20 @@ public class schaltermultiplayer : NetworkBehaviour {
     [SyncVar]
     public int CSchalter = 0;
 
-    private void OnCollisionEnter2D(Collision2D other)
+    public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "knopf")
         {
-            Schalter = int.Parse(other.gameObject.name);
-            CmdDisable();
+            
+            CmdDisable(Schalter = int.Parse(other.gameObject.name));
         }
     }
 
     [Command]
-    private void CmdDisable()
+    private void CmdDisable(int schalter)
     {
         active = false;
-        CSchalter = Schalter;
+        CSchalter = schalter;
     }
 
     private void OnActiveChange(bool updatedActive)

@@ -17,7 +17,7 @@ public class NetworkPlayer : NetworkBehaviour {
         {
             gameObject.GetComponent<steuerungmutli>().enabled = true;
             gameObject.GetComponent<steuerungmutli>().cam = Camera.main.gameObject;
-            gameObject.GetComponent<TheHook>().enabled = true;
+            gameObject.GetComponent<Hookmulti>().enabled = true;
         }
 	}
 	

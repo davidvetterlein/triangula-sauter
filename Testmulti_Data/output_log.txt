@@ -14,27 +14,17 @@ Platform assembly: C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Mana
 Loading C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.156 seconds
+- Completed reload, in  0.172 seconds
 Platform assembly: C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\David\Documents\triangula-sauter\Testmulti_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.794933 ms
+UnloadTime: 0.812044 ms
 Active changed on client!
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
-
-Active changed on client!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.652756 ms
-
-Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 2190.
-Total: 0.653644 ms (FindLiveObjects: 0.115377 ms CreateObjectMapping: 0.078711 ms MarkObjects: 0.440488 ms  DeleteObjects: 0.010755 ms)
 
 Active changed on client!
  
@@ -52,16 +42,10 @@ Active changed on client!
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
-Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:61667}
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.225644 ms
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 2189.
-Total: 0.436577 ms (FindLiveObjects: 0.060622 ms CreateObjectMapping: 0.032755 ms MarkObjects: 0.330000 ms  DeleteObjects: 0.006355 ms)
-
 Active changed on client!
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:61880}
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 42c -> priority: 1 
+  Thread -> id: 11a8 -> priority: 1 
