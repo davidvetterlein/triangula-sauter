@@ -77,9 +77,9 @@ public class steuerungmutli : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
 		
-		if(col.gameObject.tag == "tot"){
+		/*if(col.gameObject.tag == "tot"){
 			gameObject.transform.position = Startpos;
-		}
+		}*/
         gameObject.GetComponent<Rigidbody2D>().WakeUp();
         jump = 0;
         jumping = false;
