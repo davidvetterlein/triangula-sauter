@@ -18,10 +18,21 @@ public class Networkdead : NetworkBehaviour {
 	void Update () {
 	    if(dead == true)
         {
-            gameObject.transform.position = Spawn;
+            StartCoroutine(Example());
             Cmdtot(false);
         }
 	}
+
+    IEnumerator Example()
+    {
+        gameObject.GetComponent<steuerungmutli>().enabled = false;
+        gameObject.GetComponent<NetworkPlayer>().enabled = false;
+        yield return new WaitForSeconds(0.3f);
+        gameObject.transform.position = Spawn;
+        yield return new WaitForSeconds(1);
+        gameObject.GetComponent<NetworkPlayer>().enabled = true;
+        gameObject.GetComponent<steuerungmutli>().enabled = true;
+    }
 
     public void OnCollisionEnter2D(Collision2D other)
     {
