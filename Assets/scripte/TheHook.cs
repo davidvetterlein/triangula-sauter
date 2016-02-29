@@ -7,6 +7,7 @@ public class TheHook : MonoBehaviour {
 	public Vector3 grabpos;
 	public int lengthOfLineRenderer = 2;
 	public bool callable = true;
+    public GameObject nuller;
 	
 	// Use this for initialization
 	void Start () {
@@ -21,7 +22,7 @@ public class TheHook : MonoBehaviour {
 			points[1] = gameObject.transform.position;
 			points[0] = grabpos;
 			GetComponent<LineRenderer>().SetPositions(points);
-		}else{
+		}else if(called == true){
 			GetComponent<LineRenderer>().enabled = false;
 		}
 		
@@ -32,15 +33,8 @@ public class TheHook : MonoBehaviour {
 		if(Input.GetKey("down")){
 			distance += 0.05f;
 		}
-        if(Input.GetKeyDown("m")){
-            if(called == true  && callable ==true)
+        if(Input.GetKeyDown("n")){
             {
-                called = false;
-                CallHook();
-            }
-            else
-            {
-                called = true;
                 UndoCall();
             }
         }
@@ -48,28 +42,32 @@ public class TheHook : MonoBehaviour {
 
     public void CallHook()
     {
-		callable = false;
-        gameObject.GetComponent<DistanceJoint2D>().enabled = true;
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), Vector2.up);
-        if (hit.collider != null)
+        if (gameObject.GetComponent<blockauswahl>().Block != nuller && gameObject.GetComponent<blockauswahl>().Block.tag == "callable")
         {
-            gameObject.GetComponent<DistanceJoint2D>().connectedAnchor = hit.collider.transform.position;
-			grabpos = hit.collider.transform.position;
-			distance = Vector3.Distance(transform.position,grabpos);
-			distance -= 0.2f;
+            called = false;
+            GameObject Block;
+            gameObject.GetComponent<DistanceJoint2D>().enabled = true;
+            Block = gameObject.GetComponent<blockauswahl>().Block;
+            grabpos = Block.transform.position;
+            gameObject.GetComponent<DistanceJoint2D>().connectedAnchor = Block.transform.position;
+            distance = Vector3.Distance(transform.position, grabpos);
+            distance -= 0.2f;
+            //callable = false;
+            gameObject.GetComponent<blockauswahl>().End();
         }
     }
 
     public void UndoCall()
     {
+        called = true;
         gameObject.GetComponent<DistanceJoint2D>().enabled = false;
     }
 	
-	void OnCollisionEnter2D(Collision2D col){
+	/*void OnCollisionEnter2D(Collision2D col){
 		callable = true;
 		if(called == false){
 			UndoCall();
 			called = true;
 		}
-	}
+	}*/
 }
