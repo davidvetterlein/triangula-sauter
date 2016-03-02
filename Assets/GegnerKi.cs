@@ -2,13 +2,13 @@
 using System.Collections;
 
 public class GegnerKi : MonoBehaviour {
-	public Vector2 Point1;
-	public Vector2 Point2;
+	public Vector3 Point1;
+	public Vector3 Point2;
 	public float speed;
 	int jump = 50;
 	public int newJump = 50;
 	public float up;
-	bool zupunkt1 = false;
+	public bool zupunkt1 = false;
 	public int wahrscheinlichkeit = 0;
 	bool grounded = true;
 	// Use this for initialization
@@ -32,9 +32,10 @@ public class GegnerKi : MonoBehaviour {
 		
 		float step = speed * Time.deltaTime;
 		if(zupunkt1 == true){
-			transform.MoveTowards(gameObject.transform.position, Point1, step);
-		}else{
-			transform.MoveTowards(gameObject.transform.position, Point2, step);
+            transform.position = Vector3.MoveTowards(gameObject.transform.position, Point1, step);
+        }
+        else{
+			transform.position = Vector3.MoveTowards(gameObject.transform.position, Point2, step);
 		}
 		if(gameObject.transform.position == Point1){
 			zupunkt1 = false;
