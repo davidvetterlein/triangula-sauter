@@ -72,8 +72,8 @@ public class steuerung : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-		
 		if(col.gameObject.tag == "tot"){
+            gameObject.GetComponent<TheHook>().UndoCall();
 			gameObject.transform.position = Startpos;
 		}
         gameObject.GetComponent<Rigidbody2D>().WakeUp();

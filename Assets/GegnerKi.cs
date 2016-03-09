@@ -35,13 +35,15 @@ public class GegnerKi : MonoBehaviour {
             transform.position = Vector3.MoveTowards(gameObject.transform.position, Point1, step);
         }
         else{
-			transform.position = Vector3.MoveTowards(gameObject.transform.position, Point2, step);
+            transform.position = Vector3.MoveTowards(gameObject.transform.position, Point2, step);
 		}
 		if(gameObject.transform.position == Point1){
-			zupunkt1 = false;
+            transform.Rotate(0, 0, 0);
+            zupunkt1 = false;
 		}
 		if(gameObject.transform.position == Point2){
-			zupunkt1 = true;
+            transform.Rotate(0, 180, 0);
+            zupunkt1 = true;
 		}
 	}
 	

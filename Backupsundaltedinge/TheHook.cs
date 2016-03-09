@@ -8,7 +8,6 @@ public class TheHook : MonoBehaviour {
 	public int lengthOfLineRenderer = 2;
 	public bool callable = true;
     public GameObject nuller;
-    public bool abbruch = false;
 	
 	// Use this for initialization
 	void Start () {
@@ -27,30 +26,14 @@ public class TheHook : MonoBehaviour {
 			GetComponent<LineRenderer>().enabled = false;
 		}
 		
-		if(Input.GetKey("up") && abbruch == false)
-        {
+		if(Input.GetKey("up")){
 			distance -= 0.05f;
 		}
-        /*if (Input.GetKeyDown("up"))
-        {
-            transform.position += new Vector3(0, 0.1f, 0);
-        }*/
-
-        if (Input.GetKey("down") && abbruch == false){
+		
+		if(Input.GetKey("down")){
 			distance += 0.05f;
 		}
-        /*if (Input.GetKeyDown("down"))
-        {
-            transform.position -= new Vector3(0, 0.1f, 0);
-        }
-        */
-        if (Input.GetKeyDown("m"))
-        {
-            {
-                CallHook();
-            }
-        }
-        if (Input.GetKeyDown("n")){
+        if(Input.GetKeyDown("n")){
             {
                 UndoCall();
             }
@@ -59,16 +42,18 @@ public class TheHook : MonoBehaviour {
 
     public void CallHook()
     {
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 0.6f), Vector2.up);
-        distance = Vector2.Distance(new Vector2(transform.position.x, 0), new Vector2(hit.transform.position.x, 0));
-        if (hit.collider != null && hit.collider.tag == "callable")
+        if (gameObject.GetComponent<blockauswahl>().Block != nuller && gameObject.GetComponent<blockauswahl>().Block.tag == "callable")
         {
             called = false;
+            GameObject Block;
             gameObject.GetComponent<DistanceJoint2D>().enabled = true;
-            grabpos = hit.transform.position;
-            gameObject.GetComponent<DistanceJoint2D>().connectedAnchor = hit.transform.position;
+            Block = gameObject.GetComponent<blockauswahl>().Block;
+            grabpos = Block.transform.position;
+            gameObject.GetComponent<DistanceJoint2D>().connectedAnchor = Block.transform.position;
             distance = Vector3.Distance(transform.position, grabpos);
             distance -= 0.2f;
+            //callable = false;
+            gameObject.GetComponent<blockauswahl>().End();
         }
     }
 
@@ -78,11 +63,11 @@ public class TheHook : MonoBehaviour {
         gameObject.GetComponent<DistanceJoint2D>().enabled = false;
     }
 	
-	void OnCollisionEnter2D(Collision2D col){
-        abbruch = true;
-	}
-    void OnCollisionExit2D(Collision2D col)
-    {
-        abbruch = false;
-    }
+	/*void OnCollisionEnter2D(Collision2D col){
+		callable = true;
+		if(called == false){
+			UndoCall();
+			called = true;
+		}
+	}*/
 }
