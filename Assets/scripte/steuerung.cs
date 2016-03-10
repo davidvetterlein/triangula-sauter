@@ -14,6 +14,7 @@ public class steuerung : MonoBehaviour {
 	public float maxy = 0;
 	public float miny = 0;
 	public Vector3 Startpos;
+    public float camminus;
 	
 
 	public void clickupL (){
@@ -52,7 +53,7 @@ public class steuerung : MonoBehaviour {
 		}
 		}
 		
-		cam.transform.position = new Vector3(gameObject.transform.position.x, cam.transform.position.y, cam.transform.position.z);
+		cam.transform.position = new Vector3(gameObject.transform.position.x - camminus, cam.transform.position.y, cam.transform.position.z);
 		if (jumping == true && jump >= 1 || Input.GetKey("up") && jump >= 1){
 			jump -= 1;
 			gameObject.GetComponent<Rigidbody2D>().Sleep();
