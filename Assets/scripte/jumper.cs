@@ -3,23 +3,30 @@ using System.Collections;
 
 public class jumper : MonoBehaviour {
 
-	public float up;
-	float maxy;
-	// Use this for initialization
+	public float speed;
+	public Transform Pos;
+	public int time;
+	public int newtime;
+	GameObject Player;
+
 	void Start () {
+		Player = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.5f), Vector2.up);
-		if (hit.collider.tag == "Player")
-        {
-            hit.collider.gameObject.GetComponent<Rigidbody2D>().Sleep();
-			if(hit.collider.gameObject.transform.position.y <= maxy){
-				hit.collider.gameObject.transform.position += new Vector3(0, up, 0);
-			}
-        } else{
-			hit.collider.gameObject.GetComponent<Rigidbody2D>().WakeUp();
+		if (time > 0) {
+			time -= 1;
+			Player.GetComponent<Rigidbody2D>().Sleep();
+			Player.transform.position += new Vector3 (0, speed, 0);
+		} else {
+			Player.GetComponent<Rigidbody2D>().WakeUp();
 		}
 	}
+	void OnCollisionEnter2D(Collision2D col){
+		if (col.transform.tag == "Player") {
+			time = newtime;
+		}
+	}
+
 }

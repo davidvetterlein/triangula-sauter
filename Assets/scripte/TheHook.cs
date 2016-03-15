@@ -27,14 +27,10 @@ public class TheHook : MonoBehaviour {
 			GetComponent<LineRenderer>().enabled = false;
 		}
 		
-		if(Input.GetKey("up") && abbruch == false)
+		if(Input.GetKey("up") && abbruch == false && distance >= 1)
         {
 			distance -= 0.05f;
 		}
-        /*if (Input.GetKeyDown("up"))
-        {
-            transform.position += new Vector3(0, 0.1f, 0);
-        }*/
 
         if (Input.GetKey("down") && abbruch == false){
 			distance += 0.05f;
@@ -63,12 +59,14 @@ public class TheHook : MonoBehaviour {
         distance = Vector2.Distance(new Vector2(transform.position.x, 0), new Vector2(hit.transform.position.x, 0));
         if (hit.collider != null && hit.collider.tag == "callable")
         {
-            called = false;
-            gameObject.GetComponent<DistanceJoint2D>().enabled = true;
             grabpos = hit.transform.position;
-            gameObject.GetComponent<DistanceJoint2D>().connectedAnchor = hit.transform.position;
             distance = Vector3.Distance(transform.position, grabpos);
-            distance -= 0.2f;
+			if (distance >= 1) {
+				distance -= 0.2f;           
+				gameObject.GetComponent<DistanceJoint2D>().connectedAnchor = hit.transform.position;
+				called = false;
+				gameObject.GetComponent<DistanceJoint2D>().enabled = true;
+			}
         }
     }
 
