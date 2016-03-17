@@ -20,17 +20,20 @@ public class Seilbahn : MonoBehaviour {
 		if (SeilBahn.transform.position == Current.position) {
 			if (ruckwarts == false) {
 				currentint += 1;
-				if (currentint > Positionen.Length) {
+				if (currentint >= Positionen.Length) {
 					ruckwarts = true;
-				}
+                    currentint -= 1;
+                }
 				Current = Positionen [currentint];
 			} else {
 				currentint -= 1;
 				if (currentint < 0) {
 					ruckwarts = false;
-				}
+                    currentint += 1;
+                }
 				Current = Positionen [currentint];
 			}
 		}
 	}
+
 }

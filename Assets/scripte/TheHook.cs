@@ -3,15 +3,21 @@ using System.Collections;
 
 public class TheHook : MonoBehaviour {
     public bool called = false;
-	public float distance;
+    public bool calledm = false;
+    public float distance;
 	public Vector3 grabpos;
 	public int lengthOfLineRenderer = 2;
 	public bool callable = true;
     public GameObject nuller;
     public bool abbruch = false;
-	
-	// Use this for initialization
-	void Start () {
+    public GameObject MobilJump;
+    public GameObject MobilDown;
+    public GameObject MobilUp;
+    bool up = false;
+    bool down = false;
+
+    // Use this for initialization
+    void Start () {
 	}
 	
 	// Update is called once per frame
@@ -27,12 +33,13 @@ public class TheHook : MonoBehaviour {
 			GetComponent<LineRenderer>().enabled = false;
 		}
 		
-		if(Input.GetKey("up") && abbruch == false && distance >= 1)
+		if(Input.GetKey("up") && abbruch == false && distance >= 1 || up == true && abbruch == false && distance >= 1)
         {
 			distance -= 0.05f;
 		}
 
-        if (Input.GetKey("down") && abbruch == false){
+        if (Input.GetKey("down") && abbruch == false || down == true && abbruch == false)
+        {
 			distance += 0.05f;
 		}
         /*if (Input.GetKeyDown("down"))
@@ -53,6 +60,35 @@ public class TheHook : MonoBehaviour {
         }
     }
 
+    public void CallerMobil()
+    {
+        if(calledm == true)
+        {
+            UndoCall();
+        }
+        else
+        {
+            CallHook();
+        }
+    }
+
+    public void MobilUpd()
+    {
+        up = true;
+    }
+    public void MobilUpu()
+    {
+        up = false;
+    }
+    public void MobilDownd()
+    {
+        down = true;
+    }
+    public void MobilDownu()
+    {
+        down = false;
+    }
+
     public void CallHook()
     {
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 0.6f), Vector2.up);
@@ -66,14 +102,22 @@ public class TheHook : MonoBehaviour {
 				gameObject.GetComponent<DistanceJoint2D>().connectedAnchor = hit.transform.position;
 				called = false;
 				gameObject.GetComponent<DistanceJoint2D>().enabled = true;
-			}
+                MobilJump.SetActive(false);
+                MobilDown.SetActive(true);
+                MobilUp.SetActive(true);
+                calledm = true;
+            }
         }
     }
 
     public void UndoCall()
     {
+        calledm = false;
         called = true;
         gameObject.GetComponent<DistanceJoint2D>().enabled = false;
+        MobilJump.SetActive(true);
+        MobilUp.SetActive(false);
+        MobilDown.SetActive(false);
     }
 	
 	void OnCollisionEnter2D(Collision2D col){

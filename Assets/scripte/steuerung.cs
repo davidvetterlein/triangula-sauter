@@ -15,6 +15,7 @@ public class steuerung : MonoBehaviour {
 	public float miny = 0;
 	public Vector3 Startpos;
     public float camminus;
+    public int Xp;
 	
 
 	public void clickupL (){
@@ -40,11 +41,12 @@ public class steuerung : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        Xp = PlayerPrefs.GetInt("Munzen");
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        PlayerPrefs.SetInt("Munzen", Xp);
 		if(Input.GetKey("up")){
 			if(jump == 0 && canjump == true){
 			jumping = true;
@@ -85,8 +87,6 @@ public class steuerung : MonoBehaviour {
             canjump = true;
         }
     }
-	
-	
 	
 	
 	
