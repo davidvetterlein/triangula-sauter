@@ -32,17 +32,19 @@ public class GegnerKi : MonoBehaviour {
 		
 		float step = speed * Time.deltaTime;
 		if(zupunkt1 == true){
-            transform.position = Vector3.MoveTowards(gameObject.transform.position, Point1, step);
+            transform.position = Vector3.MoveTowards(gameObject.transform.position, new Vector3(Point1.x, transform.position.y, transform.position.z), step);
         }
         else{
-            transform.position = Vector3.MoveTowards(gameObject.transform.position, Point2, step);
+            transform.position = Vector3.MoveTowards(gameObject.transform.position, new Vector3 (Point2.x, transform.position.y, transform.position.z), step);
 		}
-		if(gameObject.transform.position == Point1){
-            transform.Rotate(0, 0, 0);
+		if(gameObject.transform.position == new Vector3(Point1.x, transform.position.y, transform.position.z))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
             zupunkt1 = false;
 		}
-		if(gameObject.transform.position == Point2){
-            transform.Rotate(0, 180, 0);
+		if(gameObject.transform.position == new Vector3(Point2.x, transform.position.y, transform.position.z))
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
             zupunkt1 = true;
 		}
 	}

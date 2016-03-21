@@ -66,10 +66,18 @@ public class steuerung : MonoBehaviour {
 		}
 		if (rechts == true || Input.GetKey("right")) {
 			gameObject.transform.position += new Vector3 (speed, 0, 0);
-		}
+            gameObject.GetComponent<Animator>().SetTrigger("Bewegendlinks");
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
 		if (links == true || Input.GetKey("left")) {
 			gameObject.transform.position -= new Vector3 (speed, 0, 0);
-		}
+            gameObject.GetComponent<Animator>().SetTrigger("Bewegendlinks");
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        if(links == false && rechts == false && !Input.GetKey("left") && !Input.GetKey("right"))
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("Nix");
+        }
 	
 	}
 
